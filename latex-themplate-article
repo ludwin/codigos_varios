@@ -1,0 +1,216 @@
+\documentclass[letterpaper,12pt,onecolumn,titlepage]{article}
+
+% Se cargan los paquetes necesarios
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{fontenc}
+\usepackage{graphicx}
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2cm}{2cm}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{framed}
+\usepackage{float}
+\usepackage{color}
+\pagestyle{fancy}
+\setlength{\headheight}{13.1pt}
+% Portada
+%\author{Ludwin Alduvi Hernández Vasquez}
+%\title{Auditoría informatica de Equipos para Institución XXX}
+%\date{}
+\newcommand*{\titlep}{\begingroup 
+\centering
+\vspace*{\baselineskip}
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} 
+\rule{\textwidth}{0.4pt}\\[\baselineskip] 
+{\LARGE AUDITORÍA \\ DE \\[0.3\baselineskip] EQUIPOS INFORMÁTICOS}\\[0.2\baselineskip] 
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} 
+\rule{\textwidth}{1.6pt}\\[\baselineskip] 
+\scshape 
+Auditoría de equipos informáticos  \\
+Diagnóstico general \par 
+\vspace*{2\baselineskip}
+Por \\[\baselineskip]
+{\Large Ing.Ludwin Hernández Vasquez\par} 
+{\itshape Open Solution Systems \\Teléfono: 7871-xxxx\par} 
+\vfill 
+{\scshape 2017} \\[0.3\baselineskip] 
+{\large SAN MIGUEL}\par 
+\endgroup}
+\renewcommand{\footnoterule}{\vspace*{18pt}
+\noindent\rule{15.5cm}{0.5pt}\vspace*{2pt}}
+
+\begin{document}
+
+% Se aplica el formato a las páginas. Se despliegan: portada e índices 
+%\maketitle
+\thispagestyle{empty}
+\titlep
+\newpage
+\setcounter{page}{2}
+\tableofcontents{}
+%\thispagestyle{empty}
+%\newpage
+\thispagestyle{empty}
+\newpage
+\fancyhead{}
+\fancyfoot{}
+% Encabezado y pie de página
+\lhead{\begin{picture}(0,0) \put(0,0){\includegraphics[width=45mm]{logo-color}} \end{picture}}
+\rhead{Auditoría Informatica}
+\lfoot{\scriptsize{3ra calle Oriente, Barrio el Calvario, n 203 bis.\\
+Esquina opuesta al Pollo Campestre de Ex-Correos, San Miguel\\}}
+\rfoot{\thepage}
+
+% Desarrollo de los contenidos del documento
+\newpage
+\section{Problemática}
+	Según solicitud para diagnóstico general de tres equipos: una computadora de escritorio, una laptop y un disco duro externo, con el objetivo de saber el estado de dichos equipos y el historial de las manipulaciones de información que estos contienen, recibida el dia miercoles 8 de Marzo del año 2017, se realiza la presente auditoria informática, la cual se estructuro de la siguiente forma:
+	\begin{itemize}
+		\item Diagnóstico
+		\\ En este proceso se evaluan los equipos y cada uno de sus componentes para determinar el estado de los mismos y tomarlos como referencia para su respectivo análisis.
+		\item Análisis
+		\\ Se procede a interpretar los resultados obtenidos del paso anterior para determinar las posibles causas que pudieron ocasionar daños o perdidas de información en los dispositivos evaluados en el diagnóstico.
+		\item Conclusiones
+		\\ Se presentan, desde un punto de vista objetivo, los resultados del análisis en los cuales se detallan las deducciones de los posibles problemas por los cuales se solicito el diagnóstico de los equipos.
+	\end{itemize}	
+	%\medskip
+	Dando respuesta a esta problemática se presenta el siguiente reporte, donde se detalla paso a paso el proceso que se llevo a cabo para realizar la auditoria de los dispositivos en cuestión y los resultados obtenidos, los cuales esperamos aclaren las inquietudes que dieron origen a dicha solicitud. \\ \\
+	Como evidencia de la existencia de archivos en discos duros, se agrega un CD, el cual contiene algunos datos encontrados en equipo de escritorio y disco duro portátil. En el contenido se agrega dos carpetas de nombre PC\_Escritorio y Disco\_Portatil, haciendo referencia a los dos dispositivos en los cuales mediante análisis forense se pudo determinar que poseían datos previo a un proceso de formateo. 
+	Cabe mencionar que la información en el contenido del mencionado CD, pudo haberse almacenado en cualquier momento desde su adquisición hasta la fecha. 
+\newpage
+\section{Características técnicas de los equipos}
+	\subsection{Equipo 1}
+		\shadowbox{Se denominara Equipo 1 a la computadora de escritorio marca AOC todo en uno}
+		\begin{itemize}
+			\item Hardware\footnote{Componentes Físicos del equipo} (Ver fig. 5 de los anexos):
+				\begin{itemize}
+					\item Disco Duro: 160 GB
+					\item RAM: 1 GB
+					\item Procesador: Intel Atom 1.6 GHz Dual
+					\item Accesorios: Teclado Inalámbrico y fuente de poder
+				\end{itemize}
+			\item Software\footnote{Aplicaciones o programas que posee el equipo}:
+				\begin{itemize}
+					\item Sistema Operativo: Windows XP
+				\end{itemize}	
+		\end{itemize}
+	\subsection{Equipo 2}
+		\shadowbox{Se denominara Equipo 2 a la Laptop HP Pavlilion 360x}
+		\begin{itemize}
+			\item Hardware (Ver fig. 6 de los anexos):
+				\begin{itemize}
+					\item Disco Duro: 500 GB
+					\item RAM: 4 GB
+					\item Procesador: Intel Pentium 2.16 GHz Dual
+					\item Accesorios: Cargador y Caja
+				\end{itemize}
+			\item Software:
+				\begin{itemize}
+					\item Sistema Operativo: Windows 8.1 
+				\end{itemize}	
+
+		\end{itemize}
+	\subsection{Equipo 3}
+		\shadowbox{Se denominara Equipo 3 al Disco Duro Externo SAMSUMG M3 }
+		\begin{itemize}
+			\item Hardware:
+				\begin{itemize}
+					\item Capacidad: 1 TB
+					\item Accesorios: Cable USB
+				\end{itemize}
+		\end{itemize}
+\newpage		
+\section{Proceso de la auditoría}
+	\subsection{Equipo 1}
+		\subsubsection{Diagnóstico}
+			\begin{enumerate}[a)]
+					\item Primero se accedió al Sistema Operativo del equipo y se pudo constatar que no existía ningún archivo creado o modificado por el usuario.
+					\item  Se procedió a verificar la fecha de instalación del sistema para determinar si era el sistema original de la maquina.
+					\item  Se reviso el estado de los componentes del equipo para determinar su utilidad.
+					\item  Se analizo el disco duro, con herramientas de diagnóstico de estado.
+					\item  Se analizo el disco duro a profundidad con  herramientas avanzadas para verificar la existencia de archivos eliminados, con el fin de comprobar si se han eliminado archivos del disco.
+			\end{enumerate}
+		\subsubsection{Análisis}
+			\begin{enumerate}[a)]
+					\item  No existe ningún archivo en disco, además el sistema operativo no presenta señales de uso, el tiempo de uso del sistema es 10 minutos con 27 segundos (Ver fig. 9 de los anexos).
+					\item  La fecha de instalación de la maquina es el 19 de septiembre de 2016 (Ver fig. 9 de los anexos).
+					\item  Todos los componentes del equipo se encuentran en buen estado.
+					\item  El disco duro paso las pruebas de salud\footnote{Prueba con la que se determina el grado de daño o bienestar de un disco duro}, no presenta errores, fallos o daños y  tiene un tiempo de uso de 7778 horas (334 días con 2 horas, Ver fig. 7 de los anexos).
+					\item  El disco duro contiene archivos eliminados, fueron borrados, pero al analizarlo a profundidad se pudo comprobar que efectivamente el disco duro contiene archivos e información que fue eliminada.
+			\end{enumerate}
+		\subsubsection{Conclusión}
+			\begin{enumerate}[a)]
+					\item  El equipo nunca fue usado o fue formateado\footnote{Proceso mediante el cual se eliminan todos los archivos de un disco duro} y reinstalado.
+					\item  Dado que la fecha de instalación es reciente y la versión del sistema operativo es muy antigua, el sistema operativo instalado no es el original del equipo, además el tiempo de uso del disco duro en comparación con el tiempo de uso del sistema dan la pauta para afirmar que el sistema operativo fue cambiado. Además dicha versión del sistema operativo instalada es una versión desatendida, no oficial, por lo tanto se considera según la ley una copia ilegal.
+					\item  El equipo esta en buen estado y se puede utilizar para trabajos de oficina sin ningún problema.
+					\item  El disco duro esta en perfecto estado y puede utilizarse para almacenar información, tomando en cuenta la depreciación que este presenta.
+					\item  El disco duro fue formateado y luego reinstalado, todos los archivos que tenia fueron eliminados.
+			\end{enumerate}
+	\subsection{Equipo 2}
+		\subsubsection{Diagnóstico}
+			\begin{enumerate}[a)]
+					\item Primero se accedió al Sistema Operativo del equipo, con la particularidad que el sistema operativo nunca había sido utilizado, razón por la cual se configuraron los parametros básicos del sistema para luego acceder a el y se pudo constatar que no existía ningún archivo creado o modificado por el usuario.
+					\item  Se procedió a verificar la fecha de instalación del sistema para determinar si era el sistema original de la maquina.
+					\item  Se reviso el estado de los componentes del equipo para determinar su utilidad.
+					\item  Se analizo el disco duro, con herramientas de diagnóstico de estado.
+					\item  Se analizo el disco duro a profundidad con  herramientas avanzadas para verificar la existencia de archivos eliminados, con el fin de comprobar si se han eliminado archivos del disco.
+			\end{enumerate}
+		\subsubsection{Análisis}
+			\begin{enumerate}[a)]
+					\item  No existe ningún archivo en disco, además el sistema operativo no había sido usado antes.
+					\item  La fecha de instalación de la maquina es el 11 de marzo de 2017 (Ver fig. 10 de los anexos), cabe aclarar en este punto que debido a que la maquina nunca había sido utilizada, el sistema toma como la fecha de instalación la fecha en la que la maquina es configurada y dado el caso, la maquina fue configurada para realizar la auditoría, que se realizo en la misma fecha que el sistema refleja como fecha de instalación.
+					\item  Todos los componentes del equipo se encuentran en buen estado.
+					\item  El disco duro paso las pruebas de salud, no presenta errores, fallos o daños y  tiene un tiempo de uso de 823 horas (34 días con 7 horas, Ver fig. 8 de los anexos).
+					\item  El disco duro no contiene archivos eliminados.
+			\end{enumerate}
+		\subsubsection{Conclusión}
+			\begin{enumerate}[a)]
+					\item  El equipo nunca fue usado esta en su estado de fabrica.
+					\item  En este tipo de equipos el fabricante incluye una versión preinstalada la cual puede ser reestablecida por el usuario a su punto inicial, lo que comúnmente se conoce como "Restablecer Equipo a Valores de Fabrica", dicha acción pudo haberse ejecutado anteriormente en repetidas ocasiones para corregir fallos en sistema o dejar el equipo como se recibió del fabricante.
+					\item  El equipo esta en buen estado y se puede utilizar para trabajos de oficina sin ningún problema.
+					\item  El disco duro esta en perfecto estado y puede utilizarse para almacenar información, tomando en cuenta la depreciación que este presenta.
+					\item  El disco duro del equipo no presenta señales de uso, se puede decir que es un disco duro nuevo, nunca se utilizo para almacenar información, esto no es posible ya que el equipo presenta señales físicas de uso, no concuerda el estado del hardware con el software, ante tal situación podemos deducir, pero no comprobar , que el disco duro de este equipo pudo ser sustituido por otro nuevo de un equipo similar, para conservar las configuraciones que el fabricante establecio en mencionado dispositivo, pues el estado que presenta es el de un disco duro de una computadora sin ningún uso, cuando la evidencia fisíca del equipo demuestra que dicho equipo ha sufrido desgaste.\\ Cabe aclarar que todos los discos duros almacenan un registro de las actividades que realiza el sistema operativo; en este caso no se pudo encontrar dicho registro, la única forma de poder eliminar este registro es aplicando una técnica especializada de borrado llamada "formateo a bajo nivel"\footnote{Proceso en el cual se elimina por completo toda la información de un disco duro, mediante una herramiena de software, el cual deja el estado del disco duro como recien salido de fabrica.}, la cual no pudo aplicarse en este caso, ya que este proceso habria eliminado por completo el sistema operativo de fabrica que dicho equipo posee\\ Por ende el sistema operativo en el equipo no seria el de fabrica, sino una versión diferenta a la que se encuentra instalada en el dispositivo.
+			\end{enumerate}
+	\subsection{Equipo 3}
+		\subsubsection{Diagnóstico}
+			\begin{enumerate}[a)]
+					\item  Se analizo el disco duro, con herramientas de diagnóstico de estado.
+					\item  Se analizo el disco duro a profundidad con  herramientas avanzadas para verificar la existencia de archivos eliminados, con el fin de comprobar si se han eliminado archivos del disco.
+			\end{enumerate}
+		\subsubsection{Análisis}
+			\begin{enumerate}[a)]
+					\item  El disco duro paso las pruebas de salud, no presenta errores, fallos o daños.
+					\item  El disco duro contiene archivos eliminados, fueron borrados, pero al analizarlo a profundidad se pudo comprobar que efectivamente el disco duro contiene archivos e información que fue eliminada.
+			\end{enumerate}
+		\subsubsection{Conclusión}
+			\begin{enumerate}[a)]
+					\item  El disco duro esta en perfecto estado y puede utilizarse para almacenar información.
+					\item  El disco duro fue formateado, todos los archivos que tenia fueron eliminados..
+			\end{enumerate}
+\newpage
+\section{Aclaraciones}
+	\begin{itemize}	
+		\item Toda la información contenida en este reporte se obtuvo utilizando tecnicas avanzadas de auditoría informática, las cuales consisten en una serie de pruebas para determinar el estado de los dispositivos y su vida útil, busqueda exaustiva de datos eliminados ya sea por fallos de hardware o manipulación del usuario.
+		\item Los datos reflejados son una apreciacíon profesional de lo observado en el proceso de análisis de las situaciones planteadas en la problemática.
+		\item El auditor no es responsable del uso que se le pueda dar a la información contenida en este reporte.
+	\end{itemize}
+\newpage
+\section{Anexos}
+	\subsection{Imagenes de los equipos}
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=12cm]{dtp}
+		\caption{Equipos auditados}
+		\label{Equipos auditados}
+	\end{figure}
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=8cm]{all_in_one}
+		\caption{Computadora de escritorio Marca AOC todo en uno}
+		\label{Computadora de escritorio Marca AOC todo en uno}
+	\end{figure}
+	
+\end{document}
