@@ -1,0 +1,213 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{graphics}
+%\usepackage[pdftex]{graphicx} % PDFLaTeX
+%\DeclareGraphicsExtensions{.jpg,.png}
+\usetheme{Warsaw}
+\usepackage{array}
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+    \pdffalse
+\else
+    \pdfoutput=1
+    \pdftrue
+\fi
+\ifpdf
+   \usepackage[pdftex]{graphicx}
+   \usepackage[usenames,dvipsnames]{color}
+   \pdfcompresslevel=9
+   \pdfpageheight=12in
+\else
+   \usepackage{graphicx}
+   \usepackage[usenames]{color}
+\fi
+\ifpdf
+  \DeclareGraphicsExtensions{.png,.jpg,.pdf,.mps,.gif,.bmp}
+\else
+  \DeclareGraphicsExtensions{.eps,.ps}
+\fi
+
+
+\title{Sustituye tu Software privativo}
+\author[Ludwin Hernández]{Ludwin Hern\'andez \\ \texttt{ludwin@linuxoriente.edu.sv}}
+\institute{Comunidad Linux San Miguel} 
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Índice}
+	\tableofcontents
+\end{frame}
+
+\section{Introducción}
+	\begin{frame}
+		\frametitle{Introducción}
+			\begin{block}{Sustituye tu Software Privativo}
+				Todos usamos las computadoras por alguna razón y esa razón suele ser terminar una tarea en el menor tiempo posible y con poco esfuerzo.
+				\newline
+				El software que sirve para cumplir esas tareas casi siempre es caro según el tipo de tareas que se quieran realizar, ya sea para usuarios finales, o desarrolladores.  
+			\end{block}
+	\end{frame}
+
+
+\subsection{Software privativo}
+	\begin{frame}[fragile]
+		\begin{block}{Sustituye tu Software Privativo}
+			Por lo general windows es el sistema operativo que viene preistalado en las computadoras  la mayoría de las aplicaciones también están escritas para trabajar en este sistema.
+			Muchas de estas aplicaciones son comerciales y como se planteo antes suelen tener precios elevados.
+			Por eso en países de escasos recursos como El Salador las alternativas comunes son: 
+
+				\begin{enumerate}\pause
+					\item <1-> Comprar este software a precios muy altos
+					\item <2-> Conseguir el software de manera ilegal (Piratearlo)
+					\item <3-> Usar sustitutos de código abierto para los programas comerciales de windows
+				\end{enumerate}
+			
+		\end{block}	
+	\end{frame}
+
+\section{Categorías de Software}
+\subsection{Categoría de Software}
+	\begin{frame}[fragile]
+		\begin{block}{Categorías de Software}
+			\begin{enumerate}
+				\item <1-> Gráficos
+				\item <2-> Ofimática
+				\item <3-> Internet
+				\item <4-> Multimedia
+				\item <5-> Desarrollo de aplicaciones
+			\end{enumerate}
+		\end{block}
+\end{frame}
+
+
+\subsection{Diseño Gráfico}
+	\begin{frame}[fragile]
+	\frametitle{Diseño Gráfico}
+		\begin{table}[!h]
+			\begin{tabular}{m{2.5cm}m{8cm}}
+			\includegraphics[width=1in]{graficos.png} & Son las aplicaciones que utilizamos frecuentemente en nuestro hogar, o en el trabajo.
+			Que sirven para crear dibujos, retocar fotos, realizar diseños vectoriales, y ver u organizar las imágenes.
+			\end{tabular}
+		\end{table}
+	\end{frame}
+
+\subsection{Aplicaciones para Diseño Gráfico}
+	\begin{frame}[fragile]
+		\begin{block}{Gimp}
+			Programa para manipular imágenes de GNU, es un muy buen reemplazo para Adobe Photoshop y con todo lo que se necesita para crear imágenes y retocar fotos.
+		\end{block}
+
+		\begin{block}{Inkscape}
+			Es un programa de dibujo vectorial muy poderoso y muy buen reemplazo del corel draw
+		\end{block}
+	\end{frame}
+
+\section{Ofimática para Linux}
+	\begin{frame}[fragile]
+	\frametitle{Ofimática para Linux}
+		\begin{figure}		
+			\begin{center}
+			\includegraphics[width=2in]{office1.png}
+			\end{center}
+		\end{figure}
+
+		\newline
+		Son todas aquellas aplicaciones que sirven para trabajar en la oficina y en general para escribir cartas, reportes, tareas. Además de manejar datos numéricos financieros o formulas matemáticas y ahora también es indispensable hacer publicaciones y/o presentaciones además de que estas aplicaciones deben tener una base de datos incluida.
+	\end{frame}
+\subsection{Contenido suite Ofimática}
+	\begin{frame}[fragile]
+		\begin{block}{Open Office.org}
+			\textbf{Writer:} Un procesador de texto muy avanzado y similar a la interfaz del office 2003. \newline \newline
+			\textbf{Calc:} La hoja de calculo completamente compatible con excel \newline \newline
+			\textbf{Impress:}El creador de presentaciones no incluye plantillas pre-diseñadas pero estas se encuentran en internet, poderosas acciones y animaciones incluidas.\newline \newline
+			\textbf{Draw:} Un programa de dibujo vectorial.\newline 
+			\textbf{Math:} Un editor de ecuaciones y formulas.\newline 
+			\textbf{Base:} la base de datos capaz de importar desde acces.\newline 
+		\end{block}
+
+	\end{frame}
+
+
+\section{Internet}
+	\begin{frame}[fragile]
+		\frametitle{Internet}		
+		\begin{table}[!h]
+			\begin{tabular}{m{3cm}m{8cm}}
+
+				\includegraphics[width=1in]{internet.png} & Es sin duda uno de los campos mas grandes de la informática, y la causa por la cual mucha gente usa las computadoras para realizar muchas funciones. 
+			\end{tabular}
+		\end{table}
+		
+	\end{frame}
+	
+\subsection{Aplicaciones de navegación web}
+	\begin{frame}[fragile]	
+		\textbf{Navegador Web:} Es lo que la mayoría de la gente ve como internet y a lo que se acostumbran a usar mas fácilmente.
+		Para sustituir al Internet explorer existen ya varias opciones pero la mejor hasta el momento es Mozilla Firefox (iceweasel).\\
+
+		\textbf{Correo Electrónico:} En esta categoría hay 2 aplicaciones que se pueden recomendar para dejar de usar outlook. 
+		Mozilla Thunderbird que es de los mejores clientes de correo
+		Evolution: Que tiene una interfaz muy parecida a la de outlook e incluye muchas características para integrarse con gnome. \\
+
+		\textbf{Mensajeria Instantanea:} Mucha gente es aficionada a “chatear” con clientes de msn, aol o yahoo messenger, para eso esta pidgin una aplicación que permite tener todas estas cuentas y muchas mas en una sola sesion.
+	\end{frame}
+	
+\section{Multimedia}	
+	\begin{frame}[fragile]
+		\frametitle{Software Multimedia}		
+			\begin{table}[!h]
+				\begin{tabular}{m{2.5cm}m{8cm}}
+
+				\includegraphics[width=1in]{multimedia.png} & Ya sea para ocio o usos profesionales, la multimedia se ha vuelto muy importante en nuestras vidas y cada quien tiene sus aplicaciones favoritas, pero existen muchas alternativas libres. En esta ocasión solo mencionare algunas más conocidas en el mundo linux. 
+				\end{tabular}
+			\end{table}
+
+	\end{frame}
+\subsection{Aplicaciones Multimedia}
+	\begin{frame}[fragile]
+		\frametitle{Aplicaciones según su función}
+			
+		\textbf{Reproductores de audio:} Los mejores amarok para entornos kde y exaile para entornos gnome, estos dos reproductores son capaces de reproducir muchos formatos de audio (AAC, mp3, mp2, ogg, wma[con los codecs extra]).\\
+		\textbf{Reproductores de video:} En esta categoría, VLC player que incluye sus propios codecs y que es excelente para reproducir mp4, mpg, avi y asf.
+
+		\textbf{Quemadores de cd:} K3b y Gnomebaker son dos buenas aplicaciones para quemar cada una muy integrada con su entorno (KDE y GNOME).\\
+		\textbf{Editores de audio:}Una de las mejores aplicaiones, “Audacity” capaz de realizar cortes, mezcla efectos de sonido y con capacidad para exportar a mp3.
+	\end{frame}
+
+\section{Desarrollo de Aplicaciones}	
+	\begin{frame}[fragile]
+		\frametitle{Software de desarrollo en linux}
+		\begin{table}[!h]
+			\begin{tabular}{m{3cm}m{8cm}}
+			\includegraphics[width=1in]{desarrollo.png} & En el mundo del software libre existen varias herramientas para el desarrollo de aplicaciones y entornos web e incluso los editores de texto que vienen con los entornos gráficos o las distribuciones incluyen herramientas útiles para esta tarea.
+			\end{tabular}
+		\end{table}
+	\end{frame}
+	
+	
+\subsection{Software para desarrollo}
+	\begin{frame}
+
+	Para cualquier lenguaje de programación se necesita tener un buen IDE (Integrated Development Environment). Que permita hacer, probar y mejorar el programa.
+	En este campo tenemos a \textbf{Anjuta} un IDE muy completo hecho especialmente para GNOME, Con esta misma ideología y funcionalidad encontramos a \textbf{Geany} que tiene una interfaz muy parecida a la de anjuta. 
+	Para el entorno KDE tenemos a \textbf{Kdevelop} con un IDE para cada tipo de lenguaje (como \textbf{C/C++ y java}), (Scripting,como \textbf{javascript, php, perl y bash}).\newline
+	En la programación web tenemos buenas opciones como \textbf{bluefish} que es un editor web que acepta html, xhtml, dhtml, css javascript y mas. Para kde tenemos a \textbf{Quanta Plus} con las mismas caracteristicas, y para reemplazar a adobe dreamweaver tenemos a \textbf{Kompozer} que aun esta en desarrollo.
+	\end{frame}
+
+
+	\begin{frame}	
+		\frametitle{Gracias!}	
+			\begin{center}\alert{¿Preguntas?} \end{center}  
+			\begin{center} 
+			\includegraphics[width=1.5in]{tux.jpg} 
+			\end{center}
+			
+	\end{frame}
+	
+\end{document}
