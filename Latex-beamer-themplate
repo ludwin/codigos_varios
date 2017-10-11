@@ -1,213 +1,687 @@
 \documentclass{beamer}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-%\usepackage{graphics}
+\usepackage{graphics}
+\usepackage{graphicx}
 %\usepackage[pdftex]{graphicx} % PDFLaTeX
-%\DeclareGraphicsExtensions{.jpg,.png}
-\usetheme{Warsaw}
+\DeclareGraphicsExtensions{.jpg,.png}
+\usetheme{Warsaw}	
 \usepackage{array}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{color}
+\usepackage{xcolor,colortbl}
+\usepackage{ragged2e}
+\parskip 10.9pt
+\usepackage{listings}
+%\renewcommand\lstlistingname{Quelltext} % Change language of section name
 
-\newif\ifpdf
-\ifx\pdfoutput\undefined
-    \pdffalse
-\else
-    \pdfoutput=1
-    \pdftrue
-\fi
-\ifpdf
-   \usepackage[pdftex]{graphicx}
-   \usepackage[usenames,dvipsnames]{color}
-   \pdfcompresslevel=9
-   \pdfpageheight=12in
-\else
-   \usepackage{graphicx}
-   \usepackage[usenames]{color}
-\fi
-\ifpdf
-  \DeclareGraphicsExtensions{.png,.jpg,.pdf,.mps,.gif,.bmp}
-\else
-  \DeclareGraphicsExtensions{.eps,.ps}
-\fi
+\lstset{ % General setup for the package
+	language=Perl,
+	basicstyle=\small\sffamily,
+	%numbers=left,
+ 	numberstyle=\tiny,
+	frame=tb,
+	tabsize=2,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue},
+	stringstyle=\color{green},
+}
+
+\lstset{style=perl}
+
+\title{Introducción al Lenguaje de Programación Perl}
+\author[Ludwin Hernández]{Ludwin Hern\'andez \\ \texttt{admin@linuxoriente.edu.sv}}
+\institute{GULSM } 
 
 
-\title{Sustituye tu Software privativo}
-\author[Ludwin Hernández]{Ludwin Hern\'andez \\ \texttt{ludwin@linuxoriente.edu.sv}}
-\institute{Comunidad Linux San Miguel} 
 
 \begin{document}
 \begin{frame}
 	\titlepage
 \end{frame}
 
+
+
+\section{Definiciones}
+	\begin{frame}
+		\frametitle{Definiciones }
+	
+
+Perl es un lenguaje de programación diseñado por Larry Wall creado en 1987. Perl toma
+características del C, del lenguaje interpretado shell (sh), AWK, sed, Lisp y, en un grado
+inferior, de muchos otros lenguajes de programación. \\ \medskip
+Estructuralmente, Perl está basado en un estilo de bloques como los del C o AWK, y fue
+ampliamente adoptado por su destreza en el procesado de texto y no tener ninguna de las
+limitaciones de los otros lenguajes de script.
+	
+\end{frame}
+
 \begin{frame}
-	\frametitle{Índice}
-	\tableofcontents
-\end{frame}
-
-\section{Introducción}
-	\begin{frame}
-		\frametitle{Introducción}
-			\begin{block}{Sustituye tu Software Privativo}
-				Todos usamos las computadoras por alguna razón y esa razón suele ser terminar una tarea en el menor tiempo posible y con poco esfuerzo.
-				\newline
-				El software que sirve para cumplir esas tareas casi siempre es caro según el tipo de tareas que se quieran realizar, ya sea para usuarios finales, o desarrolladores.  
-			\end{block}
-	\end{frame}
-
-
-\subsection{Software privativo}
-	\begin{frame}[fragile]
-		\begin{block}{Sustituye tu Software Privativo}
-			Por lo general windows es el sistema operativo que viene preistalado en las computadoras  la mayoría de las aplicaciones también están escritas para trabajar en este sistema.
-			Muchas de estas aplicaciones son comerciales y como se planteo antes suelen tener precios elevados.
-			Por eso en países de escasos recursos como El Salador las alternativas comunes son: 
-
-				\begin{enumerate}\pause
-					\item <1-> Comprar este software a precios muy altos
-					\item <2-> Conseguir el software de manera ilegal (Piratearlo)
-					\item <3-> Usar sustitutos de código abierto para los programas comerciales de windows
-				\end{enumerate}
-			
-		\end{block}	
-	\end{frame}
-
-\section{Categorías de Software}
-\subsection{Categoría de Software}
-	\begin{frame}[fragile]
-		\begin{block}{Categorías de Software}
-			\begin{enumerate}
-				\item <1-> Gráficos
-				\item <2-> Ofimática
-				\item <3-> Internet
-				\item <4-> Multimedia
-				\item <5-> Desarrollo de aplicaciones
-			\end{enumerate}
-		\end{block}
-\end{frame}
-
-
-\subsection{Diseño Gráfico}
-	\begin{frame}[fragile]
-	\frametitle{Diseño Gráfico}
-		\begin{table}[!h]
-			\begin{tabular}{m{2.5cm}m{8cm}}
-			\includegraphics[width=1in]{graficos.png} & Son las aplicaciones que utilizamos frecuentemente en nuestro hogar, o en el trabajo.
-			Que sirven para crear dibujos, retocar fotos, realizar diseños vectoriales, y ver u organizar las imágenes.
-			\end{tabular}
-		\end{table}
-	\end{frame}
-
-\subsection{Aplicaciones para Diseño Gráfico}
-	\begin{frame}[fragile]
-		\begin{block}{Gimp}
-			Programa para manipular imágenes de GNU, es un muy buen reemplazo para Adobe Photoshop y con todo lo que se necesita para crear imágenes y retocar fotos.
-		\end{block}
-
-		\begin{block}{Inkscape}
-			Es un programa de dibujo vectorial muy poderoso y muy buen reemplazo del corel draw
-		\end{block}
-	\end{frame}
-
-\section{Ofimática para Linux}
-	\begin{frame}[fragile]
-	\frametitle{Ofimática para Linux}
-		\begin{figure}		
-			\begin{center}
-			\includegraphics[width=2in]{office1.png}
-			\end{center}
-		\end{figure}
-
-		\newline
-		Son todas aquellas aplicaciones que sirven para trabajar en la oficina y en general para escribir cartas, reportes, tareas. Además de manejar datos numéricos financieros o formulas matemáticas y ahora también es indispensable hacer publicaciones y/o presentaciones además de que estas aplicaciones deben tener una base de datos incluida.
-	\end{frame}
-\subsection{Contenido suite Ofimática}
-	\begin{frame}[fragile]
-		\begin{block}{Open Office.org}
-			\textbf{Writer:} Un procesador de texto muy avanzado y similar a la interfaz del office 2003. \newline \newline
-			\textbf{Calc:} La hoja de calculo completamente compatible con excel \newline \newline
-			\textbf{Impress:}El creador de presentaciones no incluye plantillas pre-diseñadas pero estas se encuentran en internet, poderosas acciones y animaciones incluidas.\newline \newline
-			\textbf{Draw:} Un programa de dibujo vectorial.\newline 
-			\textbf{Math:} Un editor de ecuaciones y formulas.\newline 
-			\textbf{Base:} la base de datos capaz de importar desde acces.\newline 
-		\end{block}
-
-	\end{frame}
-
-
-\section{Internet}
-	\begin{frame}[fragile]
-		\frametitle{Internet}		
-		\begin{table}[!h]
-			\begin{tabular}{m{3cm}m{8cm}}
-
-				\includegraphics[width=1in]{internet.png} & Es sin duda uno de los campos mas grandes de la informática, y la causa por la cual mucha gente usa las computadoras para realizar muchas funciones. 
-			\end{tabular}
-		\end{table}
+	\frametitle{Características}
 		
+		Perl es un lenguaje de propósito general originalmente desarrollado para la
+		manipulación de texto y que ahora es utilizado para un amplio rango de tareas
+		incluyendo administración de sistemas, desarrollo web, programación en red,
+		desarrollo de GUI y más. \\ \medskip
+		
+		Se previó que fuera práctico (facilidad de uso, eficiente, completo) en lugar de
+		hermoso (pequeño, elegante, mínimo). Sus principales características son que es
+		fácil de usar, soporta tanto la programación estructurada como la programación
+		orientada a objetos y la programación funcional, tiene incorporado un poderoso
+		sistema de procesamiento de texto y una enorme colección de módulos
+		disponibles.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ventajas de Perl}
+	En la industria del Software Perl le da respuesta a una serie de tendencias como:
+	\begin{enumerate}
+	\item Rebaja de los costes en el hardware.
+	\item Aumento de los costes laborales.
+	\item Mejoras en la tecnología de compiladores.
+	\item Multi Plataforma.
+	\item Es un Lenguaje Multipropósito. 
+	\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Antes de Iniciar...}
+Perl es un lenguaje interpretado, es decir, para ejecutar un script de Perl debemos indicarle
+al sistema operativo el intérprete que queremos utilizar para ejecutarlo. \\
+	\begin{itemize}
+				\item {\bf Hay dos maneras de hacerlo:}
+			\begin{enumerate}
+				\item Ejecutando el binario de Perl y pasarle como argumento el nombre completo del
+				archivo de Perl. Ejemplo (en línea de comandos de Unix):
+				\alert{ludwin@host \~\$ perl\ script.pl}
+				\medskip
+				\item Insertando en la primera línea del archivo del script, los caracteres clásicos de
+				inicio de algún script que reconoce el sistema operativo, el caracter de sharp y el
+				signo de admiración ( \#! ), seguido de la ruta del binario de Perl. Algo como esto: \\
+				\alert{\#!/usr/bin/perl}
+				
+			\end{enumerate}
+		\centering{\alert{Es necesario que el script tenga los permisos permisos de ejecución, es decir, 755 ó rwxr­xr­x.}}
+
+	\end{itemize}		
 	\end{frame}
+
+\begin{frame}
+\frametitle{Antes de Iniciar...}
+	Perl viene por defecto instalado en todas las distribuciones de GNU/Linux y las versiones de UNIX, para M\$ \alert{Puedes llamar a soporte para que te ayuden a instalarlo y configurarlo ..xD}
+ \medskip
+
+ \begin{itemize}
+ \item {\bf perl -­v :} Muestra la versión del intérprete de Perl que estamos utilizando.
+ \item {\bf perl -­V :} Muestra información sobre la configuración del intérprete de perl.
+ \item {\bf perl -­d script :} Ejecuta el script bajo el depurador.
+ \item {\bf perl -­w script :} Da avisos sobre las construcciones con errores.
+ \item {\bf perl -­x script :} Empieza a interpretar el archivo que contiene el script cuando
+encuentra la referencia al intérprete, por ejemplo: \alert{\#!/usr/bin/perl.}
+ \end{itemize}
+
+ 
+ 
+ 
+\end{frame}
 	
-\subsection{Aplicaciones de navegación web}
-	\begin{frame}[fragile]	
-		\textbf{Navegador Web:} Es lo que la mayoría de la gente ve como internet y a lo que se acostumbran a usar mas fácilmente.
-		Para sustituir al Internet explorer existen ya varias opciones pero la mejor hasta el momento es Mozilla Firefox (iceweasel).\\
 
-		\textbf{Correo Electrónico:} En esta categoría hay 2 aplicaciones que se pueden recomendar para dejar de usar outlook. 
-		Mozilla Thunderbird que es de los mejores clientes de correo
-		Evolution: Que tiene una interfaz muy parecida a la de outlook e incluye muchas características para integrarse con gnome. \\
+\begin{frame}[fragile]
+\frametitle{Partes de un script de Perl }
 
-		\textbf{Mensajeria Instantanea:} Mucha gente es aficionada a “chatear” con clientes de msn, aol o yahoo messenger, para eso esta pidgin una aplicación que permite tener todas estas cuentas y muchas mas en una sola sesion.
-	\end{frame}
+Un script en Perl es una sucesión de instrucciones.
+Cada instrucción sola debe terminar siempre con una punto y coma ( ; ).
+Cuando deseamos insertar comentarios en los scripts, estos deben ir precedidos por el
+símbolo de sharp ( \# ). Todos los caracteres que siguen a este símbolo y que están
+contenidos en la misma línea se consideran comentarios y se ignoran para la ejecución del
+programa. \medskip
+
+Para complementar la estructura del script debe de terminar ejemplo: .pl ó .cgi
+
+ \medskip
+ \begin{example}
+		\begin{verbatim}
+			perl mi_script.pl o ./mi_script.pl
+		\end{verbatim}
+	\end{example}	
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Preparando el entorno de desarrollo}
+ Es necesario contar con una herramienta de software que permita poder crear y editar el codigo fuente.
+ \begin{itemize}
+	\item En GNU/Linux puedes usar Geany ( \alert{apt-get install geany})el cual es sumamente amigable para remarcar la sintaxis de muchos lenguajes.
+	\item  {\bf Emacs:} Es un editor de texto con una gran cantidad de funciones, muy popular entre programadores y usuarios técnicos.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Primer script en Perl}
+ \begin{example}
+	\#!/usr/bin/perl \\
+	print "Hola grupo!"; \\
+	\alert{\# Este es un comentario}
+	\end{example}
+	Guardamos el archivo con nombre hola.pl \medskip
+	Luego ejecutamos el script con \alert{perl hola.pl ó ./hola.pl}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Tipos de Datos}
+
+	\begin{enumerate}
+	\item Escalares.
+	\item Arrays o listas indexadas.
+	\item Hashes o arrays de indexación literal, o listas de asociación.
 	
-\section{Multimedia}	
+	\end{enumerate}
+	las variables escalares son las cadenas.
+	Los datos contenidos en los arrays o en los hashes, generalmente pueden contener
+	variables escalares.
+	Estas tres representaciones permiten asociar a cada variable utilizada un tipo de cadena.
+	
+\end{frame}
 	\begin{frame}[fragile]
-		\frametitle{Software Multimedia}		
-			\begin{table}[!h]
-				\begin{tabular}{m{2.5cm}m{8cm}}
+	\frametitle{Los escalares}
+El escalar representa el tipo de datos básico en Perl. Y nos permite representar números
+reales, números enteros y cadenas de caracteres. \\
+Perl permite representar los datos con los que trabajamos de una manera muy fácil y
+directa.
 
-				\includegraphics[width=1in]{multimedia.png} & Ya sea para ocio o usos profesionales, la multimedia se ha vuelto muy importante en nuestras vidas y cada quien tiene sus aplicaciones favoritas, pero existen muchas alternativas libres. En esta ocasión solo mencionare algunas más conocidas en el mundo linux. 
-				\end{tabular}
-			\end{table}
+\begin{example}			
+\$nombre\_user; \\
+\$nombreUser; \\
+\$salida\_calculo; \\
+\$resultadoTotal;\\
+\$resTotal; \\
+\$subTotal1; \\
+\$subTotal\_2;  \# caracteres alfanumericos 
+\end{example}
+\end{frame}	
 
-	\end{frame}
-\subsection{Aplicaciones Multimedia}
-	\begin{frame}[fragile]
-		\frametitle{Aplicaciones según su función}
+\begin{frame}[gragile]
+\frametitle{Números reales y enteros}
+Los valores numéricos expresados literalmente se presentan en forma de valores reales
+codificados en doble precisión. Así pues, Perl no distingue entre enteros y flotantes.
+Este formato interno se utiliza para todas las operaciones aritméticas.
+\medskip
+
+\begin{example}
+
+\end{example}
+\$x=0.78; \alert{\# es un real} \\
+\$y=1.22e-22; \alert{\# es un real} \\
+\$num=800; \alert{\# es un entero} \\
+\$i= -128; \alert{\# es un entero}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Cádena de Carácteres}
+Se especifican por medio de una sucesión de caracteres
+delimitada por comillas dobles ( " .. " ) o comillas simples ( ' .. ' ).
+	\begin{example}
+		\$foo = "hello Perl";
+	\end{example}
+\end{frame}	
+
+\begin{frame}
+\frametitle{Concatenación de variables}
+Para poder hacer esta concatenación es necesario usar una referencia al nombre de la
+variable con los símbolos de llaves: \medskip
+
+\$w = 'w'; \\
+\$bar = 'El sitio es \$\{w\}ww.gnu.org'; \\
+print \$bar; \\
+\alert{\# ESTO IMPRIME: El sitio es www.gnu.org}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contexto de uso de las variables}
+El tipo y el valor de las variables en Perl se determina a partir del contexto.
+Así, una cadena de caracteres conteniendo un valor numérico será convertida en variable
+numérica en un contexto numérico, como ya lo habíamos mencionado.
+\begin{example}
+\$pi = 3.1416; \# un número real \\
+\$var = "20"; \# una cadena de caracteres \\
+\$suma = $pi + $var; \# sumamos ambas variables \\
+print \$suma; \#imprime 23.1416
+ 
+\end{example}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Los arrays o listas indexadas}
+Debemos antes que nada, comprender qué es una lista de datos.
+Se expresa una lista de datos generalmente mediante el uso de paréntesis, y al declararlos,
+los separamos por comas (,): \\
+\alert{(ElementoUno, ElementoDos, ElementoTres)} \\ \medskip
+Estas variables, de tipo array, se identifican por el prefijo arroba @. Por ejemplo: \\
+@numeros = (2, 3, 500, 10, 2.1, 7, 8); \\
+@letras = ('pupusa', 'chilate', 'nuegados'); \\
+@mezcla = ('hola', 20, 'adios', 3.14.16); \\	
+\end{frame}
+
+\begin{frame}
+\frametitle{Operadores en Perl}
+
+	\begin{itemize}
+			\item {\bf En Perl, se distinguen tres tipos de operadores de datos. Y dependen de la representación de datos sobre la que estamos actuando:}
+		
+			\begin{enumerate}
+			\item Operadores para escalares.
+			\item Operadores para arrays.
+			\item Operadores para hashes ó listas asociativas.
 			
-		\textbf{Reproductores de audio:} Los mejores amarok para entornos kde y exaile para entornos gnome, estos dos reproductores son capaces de reproducir muchos formatos de audio (AAC, mp3, mp2, ogg, wma[con los codecs extra]).\\
-		\textbf{Reproductores de video:} En esta categoría, VLC player que incluye sus propios codecs y que es excelente para reproducir mp4, mpg, avi y asf.
+			\end{enumerate}
+		
+	\end{itemize}
 
-		\textbf{Quemadores de cd:} K3b y Gnomebaker son dos buenas aplicaciones para quemar cada una muy integrada con su entorno (KDE y GNOME).\\
-		\textbf{Editores de audio:}Una de las mejores aplicaiones, “Audacity” capaz de realizar cortes, mezcla efectos de sonido y con capacidad para exportar a mp3.
-	\end{frame}
+\end{frame}
 
-\section{Desarrollo de Aplicaciones}	
-	\begin{frame}[fragile]
-		\frametitle{Software de desarrollo en linux}
-		\begin{table}[!h]
-			\begin{tabular}{m{3cm}m{8cm}}
-			\includegraphics[width=1in]{desarrollo.png} & En el mundo del software libre existen varias herramientas para el desarrollo de aplicaciones y entornos web e incluso los editores de texto que vienen con los entornos gráficos o las distribuciones incluyen herramientas útiles para esta tarea.
-			\end{tabular}
-		\end{table}
-	\end{frame}
-	
-	
-\subsection{Software para desarrollo}
-	\begin{frame}
+\begin{frame}
+\frametitle{Operadores para escalares}
 
-	Para cualquier lenguaje de programación se necesita tener un buen IDE (Integrated Development Environment). Que permita hacer, probar y mejorar el programa.
-	En este campo tenemos a \textbf{Anjuta} un IDE muy completo hecho especialmente para GNOME, Con esta misma ideología y funcionalidad encontramos a \textbf{Geany} que tiene una interfaz muy parecida a la de anjuta. 
-	Para el entorno KDE tenemos a \textbf{Kdevelop} con un IDE para cada tipo de lenguaje (como \textbf{C/C++ y java}), (Scripting,como \textbf{javascript, php, perl y bash}).\newline
-	En la programación web tenemos buenas opciones como \textbf{bluefish} que es un editor web que acepta html, xhtml, dhtml, css javascript y mas. Para kde tenemos a \textbf{Quanta Plus} con las mismas caracteristicas, y para reemplazar a adobe dreamweaver tenemos a \textbf{Kompozer} que aun esta en desarrollo.
-	\end{frame}
-
-
-	\begin{frame}	
-		\frametitle{Gracias!}	
-			\begin{center}\alert{¿Preguntas?} \end{center}  
-			\begin{center} 
-			\includegraphics[width=1.5in]{tux.jpg} 
-			\end{center}
+	\begin{itemize}
+			\item {\bf Este tipo de operadores se pueden sub­dividir en:}
+		
+			\begin{enumerate}
+				  \item Operadores aritméticos.
+				 \item Operadores relacionales.
+				 \item Operadores lógicos o booleanos.
+				 \item Operador de selección.
+				 \item Operadores de asignación.
+				 \item Operadores de bits.
 			
-	\end{frame}
-	
+			\end{enumerate}
+		
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Operadores aritméticos}
+Ejemplo tipos básicos de operaciones entre variables
+escalares.
+
+\begin{example}
+\#!/usr/bin/perl \\
+\$var1 = 60; \\
+\$var2 = 40; \\
+\$resta = \$var1 - \$var2; \\
+print \$resta; \alert{\# esto imprime 20}\\
+\medskip
+
+\end{example}
+\alert{Elabora el resto de operaciones(+,/,*)}	
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Operadores aritméticos}
+Sustitución de Variables
+
+\begin{example}
+\#!/usr/bin/perl \\
+\$var1 = 50; \\
+\$var2 = 2; \\
+\$var3 = 20; \\
+\$var4 = 4;\\
+\$resultado = ((\$var1 * \$var2) / \$var3) - \$var4; \alert{\# ((50 * 2) / 20) - 4}\\
+print 'El resultado es \$resultado';\\
+\alert{\# esto imprime: El resultado es 1}
+\medskip
+
+\end{example}
+
+\end{frame}
+
+
+% Using typewriter font: \ttfamily inside \lstset
+\begin{frame}[fragile]
+\frametitle{Entrada Salida}
+
+\begin{lstlisting}
+  #!/usr/bin/perl
+
+  print 'Hola, cual es tu nombre \n';
+  $nombre=<STDIN>;
+  #le quitamos el caracter de retorno de carro
+  chop($nombre);
+  if ($nombre eq '')
+  {
+    print 'Que pasa, no puedes hablar'.'\n';
+  }
+  else 
+  {
+   print 'Hola $nombre, Yo soy El Kevin'.'\n';
+  } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Entrada Salida}
+
+\begin{lstlisting}
+  #!/usr/bin/perl
+  
+  print "Hola. Como te llamas \n";
+  $nombre=<STDIN>;
+  #le quitamos el caracter de retorno de carro
+  chop($nombre);
+
+  if ($nombre eq "")
+  {
+    print STDERR 'Que pasa no puedes hablar'."\n";
+  }
+  else 
+  {
+    print STDOUT "Hola $nombre, Yo soy el Kevin \n";
+  } 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ejemplo de ficheros}
+
+\begin{lstlisting}
+  #!/usr/bin/perl
+
+  my $entrada="entrada.txt";
+  my $salida ="salida.txt";
+
+  open (ENTRADA,"<$entrada") || die "ERROR \n";
+  open (SALIDA,">$salida") || die "ERROR \n";
+ 
+  while ($linea=<ENTRADA>)
+  {
+    print SALIDA $linea;
+  }
+
+  close (ENTRADA);
+  close (SALIDA);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Estructuras de control, la función if}
+
+\begin{lstlisting}
+	#!/usr/bin/perl
+	$var = "";
+	# variable vacia = 0 = falso
+	if ( $var ne "" ) {
+		print $var, "\n";
+	}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Estructuras de control, la función if}
+
+\begin{lstlisting}
+	#!/usr/bin/perl
+	$var = "Hola perl...";
+	# variable no vacia = 1 logico = verdadero
+	if ( $var ) {
+	# si $var existe = diferente de 0 = verdadero
+	print $var, "\n";
+	}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Estructuras de control, la función if else}
+
+\begin{lstlisting}
+	#!/usr/bin/perl
+	$var = "Hola perl!!";
+	if ( $var ) {
+	print $var, "\n";
+	} else {
+	print "Nada que imprimir \n";
+	}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La función unless}
+Ahora, que pasa si no queremos ejecutar nada cuando la condición devuelva verdadero,
+solo cuando la condición devualva falso.
+\begin{lstlisting}
+	#!/usr/bin/perl
+	$var = "Hola perl!!";
+	if ( $var ) {
+	# si $var "no es igual" vacio o 0
+	# NO quiero hacer nada
+	} else {
+	print "Nada que imprimir \n";
+	}
+\end{lstlisting}
+Para solucionar esto, existe la función unless, que ejecuta un bloque de instrucciones
+cuando la evaluación de una condición devuelva falso.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La función unless}
+El mismo ejemplo usando la función correcta:
+\begin{lstlisting}
+	#!/usr/bin/perl
+	$var = "";
+	unless ( $var ) {
+	}
+	# si $var "es igual" vacio = 0 = falso
+	print "Nada que imprimir \n";
+\end{lstlisting}
+Cuando la variable posee contenido no queremos hacer nada, así que si le asignamos un
+valor a \$var, no imprimimos nada. Esto es, no se ejecutará el bloque siguiente a unless().
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La función while}
+Perl también posee funciones que ejecutan un bloque de instrucciones en forma
+repetitiva, mientras una condición sea verdadera.
+\begin{lstlisting}
+#!/usr/bin/perl
+$cont = 0;
+while ( $cont <= 10 ) {
+	print "El contador es: ", $cont, "\n";
+	$cont ++; # incremento
+	}
+	print "Ya salimos del ciclo \n";
+exit;
+\end{lstlisting}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{EL bucle for}
+Otro bucle que se ejecuta iterativamente mientras una condición sea verdadera, es for()
+\begin{lstlisting}
+#!/usr/bin/perl
+$i = 0;
+while ( $i <= 10 ) {
+	print "El contador es: ", $i, "\n";
+	$i ++; # incremento
+}
+exit;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{EL bucle for}
+El operador for() también es capaz de procesar una lista como while():
+\begin{lstlisting}
+#!/usr/bin/perl
+for $i ( 1 .. 10 ) {  # rango del 1 al 10
+	print $i, "\n"; # imprime del 1 al 10 y salto de linea
+	}
+exit;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La función foreach}
+La construcción foreach() recorre iterativamente cada elemento de una lista dada.
+La sintaxis lo explica bien:
+\begin{lstlisting}
+#!/usr/bin/perl
+@a = (1,2,3,4,5);
+foreach $i ( @a ) {
+	print $i, "\n";
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Bifurcaciones para los bucles}
+En algunos momentos desearemos tener un control un poco mas estricto de lo que pase
+dentro de una función.
+Supongamos que tenemos un array de mas de 100,000 elementos obtenidos de cualquier
+parte de un servidor, y debemos encontrar si alguno de los elementos es el que buscamos. \\ \\
+
+Que tal si encontramos el elemento con el índice 200... Tendremos que esperar a que el
+bucle recorra el resto de los elementos para continuar con el script ?
+La respuesta es no, hay métodos para salir de un bucle o ciclo, así como para continuar
+con él.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La salida last}
+Sale definitivamente de un bucle. Marca el ciclo actual como el último.
+\begin{lstlisting}
+#!/usr/bin/perl
+
+$i = 0;
+while ( $i <= 10000 ) {
+	print $i, "\n";
+	$i ++;
+	if ( $i == 100 ) {
+		last;
+	}
+}
+exit;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{La salida next}
+Lo contrario de last, next continua con el ciclo.
+Esta función está implícita en cualquier bucle, solo que en ocasiones puede ser necesario
+declararlo explícitamente por necesidades específicas del script.
+\begin{lstlisting}
+#!/usr/bin/perl
+
+$i = 0;
+while ( $i <= 10000 ) {
+	print $i, "\n";
+	$i ++;
+	if ( $i == 10 ) {
+		last;
+	} else {
+		next;
+	}
+}
+exit;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Expresiones Regulares}
+
+Una expresión regular es un mecanismo que busca un patrón dentro de una cadena de
+texto. \\  \medskip
+Las expresiones regulares son usadas por muchos programas como los comandos de Unix
+grep, sed, awk, ed, vi, emacs, etc, y cada programa desde luego tiene sus variantes en su
+sintaxis. \\  \medskip
+En Perl, podemos delimitar una expresión regular generalmente encerrando la o las
+cadenas entre slashes o barras inclinadas:  \\
+/cadena/ \\  \medskip
+Y esto significa que dentro de la cadena dada, queremos encontrar el patrón indicado
+dentro de los slashes.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Expresiones regulares de comparación}
+La forma de uso mas básica de las expresiones regulares es precisamente la comparación,
+y se trata de encontrar una cadena dentro de otra.
+\begin{lstlisting}
+#!/usr/bin/perl
+$datos = "Larry Wall desarrollo Perl";
+if ( $datos =~ /Perl/ ) {
+	# Buscamos "Perl" dentro de $datos
+	# y devuelve verdadero si lo contiene
+	print "Si contiene \"Perl\" \n";
+	# no olvidemos el \ para las "
+} else {
+	print "No contiene \"Perl\" \n";
+}
+
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Buscar inicio y final de una cadena}
+La forma de uso mas básica de las expresiones regulares es precisamente la comparación,
+y se trata de encontrar una cadena dentro de otra.
+\begin{lstlisting}
+#!/usr/bin/perl
+$abc = "abcdefghijklmnopqrstvwxyz";
+if ( $abc =~ /^abc|xyz$/ ) { # buscamos al inicio o al final
+	print "Si contiene abc al inicio, o xyz al final \n";
+} else {
+	print "No contiene abc al inicio, o xyz al final \n";
+}
+exit;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Buscar rango de caracteres}
+La forma de uso mas básica de las expresiones regulares es precisamente la comparación,
+y se trata de encontrar una cadena dentro de otra.
+\begin{lstlisting}
+#!/usr/bin/perl
+$abc = "abcdef";
+if ( $abc =~ /[a-zA-Z]/ ) {
+	# buscamos rangos, de la "a" a la "z"
+	# minuscula o mayuscula
+	print "Si contiene desde a hasta la z \n";
+} else {
+	print "No contiene desde a hasta la z \n";
+}
+exit;
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}{Gracias!}
+\centering
+	Gracias a tod@s
+	\\
+
+\centering
+	Esta presentación esta bajo licencia Pública General,
+	pueden obtener una copia del código fuente en:
+	http://www.linuxoriente.edu.sv/downloads.php
+\end{frame}
+
 \end{document}
+
